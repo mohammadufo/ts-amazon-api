@@ -4,9 +4,11 @@ import express from "express";
 import mongoose from "mongoose";
 import { productRouter } from "./routers/productRouter";
 import { seedRouter } from "./routers/seedRouter";
+import { userRouter } from "./routers/userRouter";
 
 const app = express();
 dotenv.config();
+app.use(express.urlencoded({ extended: true }));
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/amazon-ts";
 mongoose.set("strictQuery", true);
@@ -27,6 +29,7 @@ app.use(
 );
 
 app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 app.use("/api/seed", seedRouter);
 
 const PORT = 4000;
