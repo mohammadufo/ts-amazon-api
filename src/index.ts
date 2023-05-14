@@ -33,7 +33,7 @@ app.use(
 
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
-pp.use("/api/orders", orderRouter);
+app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
 
 const PORT = 4000;
